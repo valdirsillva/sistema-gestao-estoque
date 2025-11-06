@@ -1,0 +1,40 @@
+# Dependency management
+/vendor/
+composer.lock # Consider including or excluding based on team preference
+
+# Environment variables
+.env
+.env.*.local # For local environment overrides
+
+# IDE and OS specific files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.sublime-project
+*.sublime-workspace
+
+# Cache and logs
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+/storage/logs/
+/bootstrap/cache/ # For Laravel projects
+
+# Build artifacts
+/public/build/ # For front-end build outputs (e.g., Webpack)
+node_modules/ # If using Node.js for front-end assets
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+*.swp
+
+# Specific framework files (example for Laravel)
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+index1.php
