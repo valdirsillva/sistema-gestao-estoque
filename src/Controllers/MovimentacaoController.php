@@ -2,8 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Model\Produto;
-use App\Services\ServiceProduto;
+use App\Model\Movimentacao;
+use App\Services\ServiceMovimentacao;
 use App\Helper\View;
 
 class MovimentacaoController
@@ -12,15 +12,14 @@ class MovimentacaoController
 
     public function index()
     {
-        $service = new ServiceProduto(new Produto());
-        $produtos = $service->listarProdutos();
-
+        $service = new ServiceMovimentacao(new Movimentacao());
+        $movimentacoes = $service->listarMovimentacoesProdutos(10, 4);
         $acao = 'movimentacoes';
-
-        View::render('home', [
-            'ultimasMovimentacoes' => $produtos,
+        View::render('movimentacoes', [
+            'ultimasMovimentacoes' => $movimentacoes,
             'acao' => $acao,
             'produtosBaixoEstoque' => $produtosBaixoEstoque ?? [],
         ]);
+        exit;
     }
 }

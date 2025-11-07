@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistema de Gestão de Estoque</title>
+  <title>Sistema de Gestão de Estoque - Pagina Home</title>
   <link rel="stylesheet" href="/sistema-gestao-estoque/src/Views/css/style.css">
 
 </head>
@@ -12,28 +12,11 @@
 <body>
   <div class="container">
     <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="logo">📦 Gestão Estoque</div>
-      <a href="?acao=dashboard" class="menu-item <?= $acao === 'dashboard' ? 'active' : '' ?>">
-        📊 Dashboard
-      </a>
-      <a href="?acao=produtos" class="menu-item <?= $acao === 'produtos' ? 'active' : '' ?>">
-        📦 Produtos
-      </a>
-      <a href="?acao=movimentacoes" class="menu-item <?= $acao === 'movimentacoes' ? 'active' : '' ?>">
-        🔄 Movimentações
-      </a>
-      <a href="?acao=relatorios" class="menu-item <?= $acao === 'relatorios' ? 'active' : '' ?>">
-        📈 Relatórios
-      </a>
-      <a href="?acao=alertas" class="menu-item <?= $acao === 'alertas' ? 'active' : '' ?>">
-        🔔 Alertas (<?= count($produtosBaixoEstoque) ?>)
-      </a>
-    </aside>
+    <?php require __DIR__ . '/sidebar/menu-sidebar.php' ?>
 
     <!-- Main Content -->
     <main class="main-content">
-      <?php if ($mensagem): ?>
+      <?php if (isset($mensagem)): ?>
         <div class="alert alert-success"><?= htmlspecialchars($mensagem) ?></div>
       <?php endif; ?>
 
@@ -256,6 +239,7 @@
       <?php endif; ?>
     </main>
   </div>
+
 </body>
 
 </html>

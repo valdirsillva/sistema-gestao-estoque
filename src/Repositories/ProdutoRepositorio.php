@@ -19,7 +19,7 @@ class ProdutoRepositorio implements IProduto
       $stmt->execute();
       return $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch (\PDOException $e) {
-      die("Erro ao listar produtos: " . $e->getMessage());
+      throw new \RuntimeException("Erro ao listar os produtos");
     }
   }
 
